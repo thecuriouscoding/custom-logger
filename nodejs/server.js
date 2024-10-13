@@ -13,8 +13,7 @@ server.on('connection', socket => {
     const reqData = data.toString()
     logger.log(reqData)
 
-    // socket.write('res:', reqData)
-    socket.write("ok")
+    socket.write(`response ${reqData}`)
   })
 
   socket.on('end', () => {
