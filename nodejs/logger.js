@@ -7,7 +7,7 @@ const logger = (logType) => {
     const logMessage = `${new Date().toISOString()} ${mode} [${logType}]: ${message}`;
 
     if (mode === "error") {
-      console.error(logMessage);
+      console.error('\x1b[31m%s\x1b[0m', logMessage);
       return;
     }
 

@@ -12,12 +12,12 @@ server.on('connection', socket => {
   socket.on('data', data => {
     const reqData = data.toString()
     logger.log(reqData)
-
     socket.write(`response ${reqData}`)
   })
 
   socket.on('end', () => {
-    logger.log('Client disconnected')
+    // for error type logging purpose, otherwise end event is not an error
+    logger.error('Client disconnected') // should be logger.log('Client disconnected')
   })
 
   socket.on('error', err => {
