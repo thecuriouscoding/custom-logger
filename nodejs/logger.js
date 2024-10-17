@@ -17,7 +17,7 @@ const logger = (logType) => {
   };
 
   return {
-    log: (message) => log("log", message),
+    info: (message) => log("info", message),
     error: (message) => log("error", message),
     warn: (message) => log("warn", message),
     debug: (message) => log("debug", message),
