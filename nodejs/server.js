@@ -7,16 +7,16 @@ const port = 8000
 const host = '127.0.0.1'
 
 server.on('connection', socket => {
-  logger.log('Client connected')
+  logger.info('Client connected')
   socket.on('data', data => {
     const reqData = data.toString()
-    logger.log(reqData)
+    logger.info(reqData)
     socket.write(`response ${reqData}`)
   })
 
   socket.on('end', () => {
     // for error type logging purpose, otherwise end event is not an error
-    logger.error('Client disconnected') // should be logger.log('Client disconnected')
+    logger.error('Client disconnected') // should be logger.info('Client disconnected')
   })
 
   socket.on('error', err => {
@@ -25,5 +25,5 @@ server.on('connection', socket => {
 })
 
 server.listen(port, host, () => {
-  logger.log(`Server running at ${host}:${port}`)
+  logger.info(`Server running at ${host}:${port}`)
 })
